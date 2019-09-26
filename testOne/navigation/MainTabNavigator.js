@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import TesteScreen from '../screens/ComponentsTestScreen';
+import ListScreen from '../screens/ListScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -84,6 +85,24 @@ TesteStack.navigationOptions = {
 TesteStack.path = '';
 
 
+const ListStack = createStackNavigator(
+  {
+    ListScreen: ListScreen,
+  },
+  config
+);
+
+ListStack.navigationOptions = {
+  tabBarLabel: 'List',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-list' : 'md-list'} />
+  ),
+};
+
+ListStack.path = '';
+
+
+
 SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
@@ -91,6 +110,7 @@ const tabNavigator = createBottomTabNavigator({
   LinksStack,
   SettingsStack,
   TesteStack,
+  ListStack
 });
 
 tabNavigator.path = '';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text,StyleSheet,View} from 'react-native'
 
-const ComponentsTestScreen = () =>{
+const ListScreen = () =>{
 
     const mensagem = 'uma mensagem';
     const jsxInaVariable = <Text>JSX In a Variable !</Text>;
@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
 })
 
 
-ComponentsTestScreen.navigationOptions = {
-    title: 'Teste do Enzo',
+ListScreen.navigationOptions = {
+    title: 'List Screen',
   };
 
 
 
-export default  ComponentsTestScreen;
+export default  ListScreen;
 
