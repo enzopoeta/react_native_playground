@@ -1,20 +1,30 @@
 import React from 'react';
-import {Text,StyleSheet,View} from 'react-native'
+import {Text,StyleSheet,View,FlatList} from 'react-native'
+//import { FlatList } from 'react-native-gesture-handler';
 
 const ListScreen = () =>{
 
-    const mensagem = 'uma mensagem';
-    const jsxInaVariable = <Text>JSX In a Variable !</Text>;
+    const items = [{name:'item 1' },{name:'item 2'},{name:'item 3'}] ;
 
-    return (<View>    
-      <Text style={styles.textStyle}>Welcome to my text component !</Text>
-      <Text>{mensagem}</Text>
-      {jsxInaVariable}
-    </View>);
+
+    
+
+    return (
+      <View>
+        <Text>List Item Demo</Text>
+      <FlatList 
+        horizontal={false}
+        keyExtractor={(item)=>item.name}
+        data={items} 
+        renderItem={({item}) =>{
+        return <Text style={styles.textStyle}>{item.name}</Text>;
+      }} />
+      </View>
+    );
 };
 
 const styles = StyleSheet.create({
-        textStyle:{fontSize: 20}
+        textStyle:{marginVertical: 100}
 })
 
 
