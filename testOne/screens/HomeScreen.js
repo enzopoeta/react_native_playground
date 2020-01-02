@@ -8,17 +8,24 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
+  
+  
+  console.log(props.navigation)
+  
   return (
     <View style={styles.container}>
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
+          
+          <TouchableOpacity onPress={ ()=> console.log("clique na imagem")}>
           <Image
             source={
               __DEV__
@@ -27,6 +34,7 @@ export default function HomeScreen() {
             }
             style={styles.welcomeImage}
           />
+          </TouchableOpacity>
         </View>
 
         <View style={styles.getStartedContainer}>
@@ -39,9 +47,15 @@ export default function HomeScreen() {
             <MonoText>screens/HomeScreen.js</MonoText>
           </View>
 
+          
+          <View>
           <Text style={styles.getStartedText}>
             Change this fucking text and your app will automatically reload.
           </Text>
+
+          </View>
+          <Text>  </Text>
+          <Button title="Go to List Page" onPress={()=> props.navigation.navigate("ListScreen")}/>
         </View>
 
         <View style={styles.helpContainer}>
